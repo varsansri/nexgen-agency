@@ -12,12 +12,12 @@ const Services = ({ services }) => {
     return (
       <section
         key={`service-${index}`}
-        className={`section ${isOdd && "bg-light"}`}
+        className={`section ${isOdd ? "bg-light" : ""}`}
       >
         <div className="container">
           <div className="items-center gap-8 md:grid md:grid-cols-2">
             {/* Carousel */}
-            <div className={`service-carousel ${!isOdd && "md:order-2"}`}>
+            <div className={`service-carousel ${!isOdd ? "md:order-2" : ""}`}>
               <Swiper
                 modules={[Autoplay, Pagination]}
                 pagination={
@@ -27,12 +27,12 @@ const Services = ({ services }) => {
                   delay: 5000,
                   disableOnInteraction: false,
                 }}
-                init={service?.images > 1 ? false : true}
+                init={service?.images?.length > 1 ? true : true}
               >
                 {/* Slides */}
                 {service?.images.map((slide, index) => (
                   <SwiperSlide key={index}>
-                    <Image src={slide} alt="" width={600} height={500} />
+                    <Image src={slide} alt="" width={600} height={500} className="rounded-2xl shadow-md border border-border/50" />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -41,19 +41,19 @@ const Services = ({ services }) => {
             {/* Content */}
             <div
               className={`service-content mt-5 md:mt-0 ${
-                !isOdd && "md:order-1"
+                !isOdd ? "md:order-1" : ""
               }`}
             >
               <h2 className="font-bold leading-[40px]">{service?.title}</h2>
-              <p className="mb-2 mt-4">{service?.content}</p>
+              <p className="mb-4 mt-4 text-text leading-relaxed">{service?.content}</p>
               {service.button.enable && (
                 <Link
                   href={service?.button.link}
-                  className="cta-link inline-flex items-center text-primary"
+                  className="cta-link inline-flex items-center font-semibold text-primary hover:underline group"
                 >
                   {service?.button.label}
                   <Image
-                    className="ml-1"
+                    className="ml-1 transition-transform group-hover:translate-x-1"
                     src="/nexgen-agency/images/arrow-right.svg"
                     width={18}
                     height={14}

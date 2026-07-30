@@ -17,11 +17,14 @@ const Footer = () => {
           {footer.map((col) => {
             return (
               <div className="mb-12 sm:col-6 lg:col-3" key={col.name}>
-                {markdownify(col.name, "h2", "h5")}
-                <ul className="mt-6">
+                {markdownify(col.name, "h2", "h5 font-bold text-text-dark")}
+                <ul className="mt-6 space-y-2">
                   {col?.menu.map((item) => (
-                    <li className="mb-1" key={item.text}>
-                      <Link href={item.url} rel="">
+                    <li key={item.text}>
+                      <Link 
+                        href={item.url} 
+                        className="text-text hover:text-primary transition-colors text-sm"
+                      >
                         {item.text}
                       </Link>
                     </li>
@@ -31,16 +34,16 @@ const Footer = () => {
             );
           })}
           {/* social icons */}
-          <div className="md-12 sm:col-6 lg:col-3">
+          <div className="mb-12 sm:col-6 lg:col-3">
             <Link href="/" aria-label="NexGen Digital">
               <Image
                 src={config.site.logo}
                 width={config.site.logo_width}
                 height={config.site.logo_height}
-                alt=""
+                alt="NexGen Digital"
               />
             </Link>
-            {markdownify(footer_content, "p", "mt-3 mb-6")}
+            {markdownify(footer_content, "p", "mt-4 mb-6 text-sm text-text leading-relaxed")}
             <Social source={social} className="social-icons mb-8" />
           </div>
         </div>

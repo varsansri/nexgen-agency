@@ -31,11 +31,12 @@ const Header = () => {
         {/* navbar toggler */}
         <button
           id="show-button"
-          className="order-2 flex cursor-pointer items-center md:order-1 md:hidden"
+          aria-label="Toggle navigation menu"
+          className="order-2 flex cursor-pointer items-center md:order-1 md:hidden p-2 text-text-dark hover:text-primary transition-colors"
           onClick={() => setNavOpen(!navOpen)}
         >
           {navOpen ? (
-            <svg className="h-6 fill-current" viewBox="0 0 20 20">
+            <svg className="h-6 w-6 fill-current" viewBox="0 0 20 20">
               <title>Close Menu</title>
               <polygon
                 points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
@@ -43,9 +44,9 @@ const Header = () => {
               />
             </svg>
           ) : (
-            <svg className="h-6 fill-current" viewBox="0 0 20 20">
+            <svg className="h-6 w-6 fill-current" viewBox="0 0 20 20">
               <title>Open Menu</title>
-              <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z" />
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
           )}
         </button>
@@ -53,16 +54,16 @@ const Header = () => {
         {/* Menu */}
         <div
           id="nav-menu"
-          className={`order-3 md:order-1 ${navOpen ? "max-h-250 md:max-h-auto" : "hidden md:block"}`}
+          className={`order-3 md:order-1 ${navOpen ? "block w-full" : "hidden md:block"}`}
         >
           <ul className="navbar-nav block w-full md:flex md:w-auto lg:space-x-2">
             {main.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
                 {menu.hasChildren ? (
                   <li className="nav-item nav-dropdown group relative">
-                    <span className="nav-link inline-flex items-center">
+                    <span className="nav-link inline-flex items-center cursor-pointer">
                       {menu.name}
-                      <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                      <svg className="h-4 w-4 ml-1 fill-current" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
                     </span>
@@ -85,7 +86,7 @@ const Header = () => {
                       href={menu.url}
                       onClick={() => setNavOpen(false)}
                       className={`nav-link block ${
-                        (pathname === menu.url || (menu.url !== "/" && pathname.startsWith(menu.url))) ? "nav-link-active" : ""
+                        (pathname === menu.url || (menu.url !== "/" && pathname?.startsWith(menu.url))) ? "nav-link-active" : ""
                       }`}
                     >
                       {menu.name}
@@ -95,11 +96,10 @@ const Header = () => {
               </React.Fragment>
             ))}
             {enable && (
-              <li className="md:hidden">
+              <li className="md:hidden mt-3">
                 <Link
-                  className="btn btn-primary z-0 py-[14px]"
+                  className="btn btn-primary z-0 py-[14px] w-full text-center"
                   href={link}
-                  rel=""
                 >
                   {label}
                 </Link>
@@ -109,7 +109,7 @@ const Header = () => {
         </div>
         {enable && (
           <div className="d-flex order-1 ml-auto hidden min-w-[200px] items-center justify-end md:order-2 md:ml-0 md:flex">
-            <Link className="btn btn-primary z-0 py-[14px]" href={link} rel="">
+            <Link className="btn btn-primary z-0 py-[14px]" href={link}>
               {label}
             </Link>
           </div>
