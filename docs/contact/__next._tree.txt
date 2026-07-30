@@ -1,4 +1,4 @@
-:HL["/nexgen-agency/_next/static/css/de5513804c2a4337.css","style"]
+:HL["/nexgen-agency/_next/static/css/c0c88add617afd59.css","style"]
 :HL["/nexgen-agency/_next/static/css/36cd761d29813cef.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"regular","param":{"type":"d","key":"contact","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"7T1RQJHGn5EDOS49xlQFt"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"regular","param":{"type":"d","key":"contact","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"K0FP5HOzBboDdcxRSkOV9"}

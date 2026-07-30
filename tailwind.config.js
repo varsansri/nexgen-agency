@@ -16,13 +16,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#7c3aed",
-        body: "#0f0f23",
-        border: "#1e1e3a",
-        light: "#1a1a35",
+        primary: "#8b5cf6",
+        body: "#08081a",
+        border: "#2e2e55",
+        light: "#11112a",
         text: {
-          DEFAULT: "#a0a0c0",
-          dark: "#ffffff",
+          DEFAULT: "#c4c4e0",
+          dark: "#fafafa",
         },
       },
       fontFamily: {
