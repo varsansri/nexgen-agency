@@ -14,10 +14,10 @@ const Header = () => {
   const { enable, label, link } = config.nav_button;
 
   return (
-    <header className="sticky top-0 z-50 py-3 px-4 sm:px-6 transition-all duration-300">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-5 py-2.5 rounded-full bg-body/80 backdrop-blur-xl border border-border/80 shadow-2xl shadow-black/50 relative">
+    <header className="sticky top-0 z-50 py-3 px-3 sm:px-6 transition-all duration-300">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-2xl md:rounded-full bg-body/85 backdrop-blur-xl border border-border/80 shadow-2xl shadow-black/50 relative">
         {/* Left: Brand Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center shrink-0">
           <Logo />
         </div>
 
@@ -72,7 +72,7 @@ const Header = () => {
           {enable && (
             <Link
               href={link}
-              className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider text-white px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-purple-600 shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group"
+              className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider text-white px-5 py-2.5 rounded-full bg-gradient-to-r from-primary via-purple-600 to-indigo-600 shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group"
             >
               <span>{label}</span>
               <span className="ml-1.5 group-hover:translate-x-1 transition-transform">→</span>
@@ -84,7 +84,7 @@ const Header = () => {
         <button
           id="show-button"
           aria-label="Toggle navigation menu"
-          className="flex md:hidden p-2 rounded-xl text-text-dark hover:text-primary hover:bg-primary/10 transition-colors"
+          className="flex md:hidden p-2 rounded-xl text-text-dark hover:text-primary hover:bg-primary/10 transition-colors shrink-0"
           onClick={() => setNavOpen(!navOpen)}
         >
           {navOpen ? (
@@ -103,7 +103,7 @@ const Header = () => {
 
         {/* Mobile Menu Dropdown */}
         {navOpen && (
-          <div className="absolute top-full left-0 right-0 mt-3 p-5 rounded-2xl bg-body/95 backdrop-blur-2xl border border-border shadow-2xl md:hidden flex flex-col gap-2">
+          <div className="absolute top-full left-0 right-0 mt-2 p-4 rounded-2xl bg-body/95 backdrop-blur-2xl border border-border shadow-2xl md:hidden flex flex-col gap-1.5">
             {main.map((menuItem, i) => {
               const isActive =
                 pathname === menuItem.url ||
