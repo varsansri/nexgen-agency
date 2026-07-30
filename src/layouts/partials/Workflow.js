@@ -1,13 +1,14 @@
 import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
+import { FiSearch, FiTarget, FiLayout, FiCode, FiSend, FiTrendingUp } from "react-icons/fi";
 
 const steps = [
-  { num: "01", title: "Discover", desc: "Understanding your business goals, target audience, and market landscape.", icon: "🔍" },
-  { num: "02", title: "Strategize", desc: "Crafting a tailored roadmap and architecture for optimal growth.", icon: "🎯" },
-  { num: "03", title: "Design", desc: "Creating intuitive, high-converting UI/UX and visual identities.", icon: "🎨" },
-  { num: "04", title: "Develop", desc: "Building scalable, clean, high-performance code with modern frameworks.", icon: "⚡" },
-  { num: "05", title: "Launch", desc: "Rigorous testing, optimization, and seamless zero-downtime deployment.", icon: "🚀" },
-  { num: "06", title: "Grow", desc: "Continuous monitoring, data-driven optimization, and scaling.", icon: "📈" },
+  { num: "01", title: "Discover", desc: "Understanding your business goals, target audience, and market landscape.", Icon: FiSearch },
+  { num: "02", title: "Strategize", desc: "Crafting a tailored roadmap and architecture for optimal growth.", Icon: FiTarget },
+  { num: "03", title: "Design", desc: "Creating intuitive, high-converting UI/UX and visual identities.", Icon: FiLayout },
+  { num: "04", title: "Develop", desc: "Building scalable, clean, high-performance code with modern frameworks.", Icon: FiCode },
+  { num: "05", title: "Launch", desc: "Rigorous testing, optimization, and seamless zero-downtime deployment.", Icon: FiSend },
+  { num: "06", title: "Grow", desc: "Continuous monitoring, data-driven optimization, and scaling.", Icon: FiTrendingUp },
 ];
 
 const Workflow = ({ workflow }) => {
@@ -31,9 +32,9 @@ const Workflow = ({ workflow }) => {
               className="bg-body border border-border rounded-xl p-6 relative hover:border-primary/40 hover:shadow-lg transition-all duration-300 group"
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="text-3xl p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-transform">
-                  {step.icon}
-                </span>
+                <div className="p-3 rounded-xl bg-primary/10 text-primary text-xl group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                  <step.Icon className="w-6 h-6" />
+                </div>
                 <span className="text-2xl font-bold text-primary/30 group-hover:text-primary transition-colors font-mono">
                   {step.num}
                 </span>

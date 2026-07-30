@@ -2,6 +2,7 @@
 import { useState } from "react";
 import config from "@config/config.json";
 import { markdownify } from "@lib/utils/textConverter";
+import { FiCheckCircle, FiMapPin, FiMail, FiPhone } from "react-icons/fi";
 
 const Contact = ({ data }) => {
   const { frontmatter } = data;
@@ -44,7 +45,9 @@ const Contact = ({ data }) => {
           <div className="col-12 md:col-6 lg:col-7">
             {status === "success" ? (
               <div className="card text-center py-16 border-emerald-500/30 bg-emerald-500/5">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-3xl mx-auto mb-4 font-bold">✓</div>
+                <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-3xl mx-auto mb-4">
+                  <FiCheckCircle className="w-10 h-10" />
+                </div>
                 <h3 className="text-text-dark mb-3 font-bold">Message Sent Successfully!</h3>
                 <p className="text-text">Thank you for reaching out. We will respond to your inquiry within 24 business hours.</p>
               </div>
@@ -82,10 +85,10 @@ const Contact = ({ data }) => {
               {markdownify(info.description, "p", "text-text leading-relaxed mb-8")}
               <ul className="space-y-4">
                 {info.contacts.map((contact, i) => (
-                  <li key={i} className="flex items-center gap-3 text-text-dark font-medium p-3 rounded-xl bg-body border border-border/60">
-                    <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                      {i === 0 ? "📍" : i === 1 ? "✉️" : "📞"}
-                    </span>
+                  <li key={i} className="flex items-center gap-3 text-text-dark font-medium p-3.5 rounded-xl bg-body border border-border/60">
+                    <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                      {i === 0 ? <FiMapPin className="w-5 h-5" /> : i === 1 ? <FiMail className="w-5 h-5" /> : <FiPhone className="w-5 h-5" />}
+                    </div>
                     <span>{contact}</span>
                   </li>
                 ))}
