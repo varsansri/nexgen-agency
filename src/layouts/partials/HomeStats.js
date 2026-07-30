@@ -4,19 +4,21 @@ import { useEffect, useRef, useState } from "react";
 function AnimatedCounter({ target, suffix = "" }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
+  const started = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
           let start = 0;
-          const step = Math.ceil(target / 40);
+          const num = parseInt(target);
+          const step = Math.ceil(num / 40);
           const timer = setInterval(() => {
             start += step;
-            if (start >= target) { start = target; clearInterval(timer); }
+            if (start >= num) { start = num; clearInterval(timer); }
             setCount(start);
           }, 40);
-          observer.disconnect();
         }
       },
       { threshold: 0.3 }
@@ -29,16 +31,15 @@ function AnimatedCounter({ target, suffix = "" }) {
 }
 
 const HomeStats = ({ stats }) => (
-  <section className="py-16 border-y border-border bg-body relative">
+  <section className="section bg-light">
     <div className="container">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div className="row text-center">
         {stats.map((stat, i) => (
-          <div key={i} className="relative">
-            <div className="text-3xl md:text-4xl font-bold text-primary">
+          <div key={i} className="col-6 lg:col-3 mb-6 lg:mb-0">
+            <div className="text-4xl font-bold text-primary">
               <AnimatedCounter target={parseInt(stat.number)} suffix={stat.number.replace(/[0-9]/g, "")} />
             </div>
             <div className="text-text text-sm mt-2">{stat.label}</div>
-            {i < stats.length - 1 && <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-border" />}
           </div>
         ))}
       </div>

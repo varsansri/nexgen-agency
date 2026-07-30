@@ -3,21 +3,13 @@
 @tailwind utilities;
 
 @import "./base.css" layer(base);
-
 @import "./components.css" layer(components);
 @import "./navigation.css" layer(components);
 @import "./buttons.css" layer(components);
-
 @import "./utilities.css";
 @import "./safe.css";
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }

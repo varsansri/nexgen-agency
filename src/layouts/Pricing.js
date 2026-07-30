@@ -1,42 +1,35 @@
 import Link from "next/link";
 import Cta from "./components/Cta";
 
-const stagger = (i) => ({
-  animation: `fadeInUp 300ms var(--ease-out) forwards`,
-  animationDelay: `${i * 50}ms`,
-  opacity: 0,
-});
-
 function Pricing({ data }) {
   const { frontmatter: { title, plans, call_to_action } } = data;
   return (
     <>
-      <section className="section pb-0">
+      <section className="section">
         <div className="container">
-          <h1 className="text-center font-normal">{title}</h1>
-          <div className="section row -mt-10 justify-center md:mt-0">
-            {plans.map((plan, index) => (
-              <div
-                className={`col-12 md:col-4 ${!plan.recommended ? "lg:px-0" : "col-recommended"}`}
-                key={plan.title + index}
-                style={stagger(index)}
-              >
-                <div className="card text-center" style={{
-                  transition: "transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out)",
-                }}>
-                  <h4 className="h5">{plan.title}</h4>
-                  <div className="mt-5">
-                    <span className="text-5xl text-text-dark">${plan.price}</span>
-                    <span>/ {plan.type}</span>
+          <h1 className="text-center mb-12">{title}</h1>
+          <div className="row justify-center">
+            {plans.map((plan, i) => (
+              <div key={i} className={`col-12 md:col-4 mb-6 ${plan.recommended ? "lg:-mt-4" : ""}`}>
+                <div className={`card text-center h-full ${plan.recommended ? "border-primary shadow-lg" : ""}`}>
+                  <h3 className="h4 text-text-dark">{plan.title}</h3>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-text-dark">${plan.price}</span>
+                    <span className="text-text">/{plan.type}</span>
                   </div>
-                  <h5 className="mt-2 font-normal text-text h6">{plan.subtitle}</h5>
-                  <ul className="mt-5">
-                    {plan.features.map((feature, index) => (
-                      <li className="mb-[10px] leading-5" key={index}>{feature}</li>
+                  <p className="mt-3 text-text text-sm">{plan.subtitle}</p>
+                  <ul className="mt-6 space-y-2 text-left">
+                    {plan.features.map((feature, j) => (
+                      <li key={j} className="flex items-start gap-2 text-text text-sm">
+                        <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        {feature}
+                      </li>
                     ))}
                   </ul>
-                  <Link className={`btn mt-5 ${plan.recommended ? "btn-primary" : "btn-outline-primary"}`}
-                    href={plan.button.link} rel={plan.button.rel}>
+                  <Link className={`btn mt-8 w-full text-center ${plan.recommended ? "btn-primary" : "btn-outline-primary"}`}
+                    href={plan.button.link}>
                     {plan.button.label}
                   </Link>
                 </div>
@@ -45,7 +38,7 @@ function Pricing({ data }) {
           </div>
         </div>
       </section>
-      <Cta cta={call_to_action} />
+      {call_to_action && <Cta cta={call_to_action} />}
     </>
   );
 }

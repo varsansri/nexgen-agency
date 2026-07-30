@@ -1,28 +1,20 @@
 import { markdownify } from "@lib/utils/textConverter";
 
-const stagger = (i) => ({
-  animation: `fadeInUp 300ms var(--ease-out) forwards`,
-  animationDelay: `${i * 50}ms`,
-  opacity: 0,
-});
-
 function Faq({ data }) {
   const { frontmatter } = data;
   const { title, faqs } = frontmatter;
   return (
     <section className="section">
       <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}
-        <div className="section row -mt-6">
-          {faqs.map((faq, index) => (
-            <div key={index} className="col-12 mt-6 md:col-6" style={stagger(index)}>
-              <div className="p-12 shadow" style={{
-                transition: "transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out)",
-              }}>
+        <h1 className="text-center mb-12">{title}</h1>
+        <div className="row">
+          {faqs.map((faq, i) => (
+            <div key={i} className="col-12 md:col-6 mb-6">
+              <div className="p-8 border border-border rounded-xl bg-body">
                 <div className="faq-head relative">
-                  {markdownify(faq.title, "h4", "h5")}
+                  <h4 className="text-text-dark">{faq.title}</h4>
                 </div>
-                {markdownify(faq.answer, "p", "faq-body mt-4")}
+                <p className="faq-body mt-3 text-text text-sm leading-relaxed">{faq.answer}</p>
               </div>
             </div>
           ))}

@@ -1,48 +1,29 @@
 import Link from "next/link";
 
-const stagger = (i) => ({
-  animation: `fadeInUp 300ms var(--ease-out) forwards`,
-  animationDelay: `${i * 50}ms`,
-  opacity: 0,
-});
-
-const iconMap = {
-  "E-Commerce": "🛍️",
-  "Healthcare": "🏥",
-  "EdTech": "📚",
-  "Branding": "🎨",
-  "SaaS": "⚡",
-  "Mobile": "📱",
-};
-
 const HomePortfolio = ({ portfolio }) => (
   <section className="section">
     <div className="container">
       <div className="text-center mb-12">
         <span className="text-primary text-sm font-semibold uppercase tracking-widest">Portfolio</span>
-        <h2 className="mt-3">Recent Projects</h2>
-        <p className="mt-4 text-text max-w-2xl mx-auto">A selection of work we are proud of. Each project is a partnership focused on measurable results.</p>
+        <h2 className="text-text-dark mt-3">Recent Projects</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {portfolio.slice(0, 6).map((project, i) => (
-          <div key={i} className="group relative rounded-xl overflow-hidden border border-border bg-body hover:border-primary/40 hover:-translate-y-1 shadow-sm hover:shadow-lg" style={{ ...stagger(i), transition: "transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), border-color 200ms var(--ease-out)" }}>
-            <div className="h-48 flex items-center justify-center bg-primary/5 text-5xl">
-              {iconMap[project.category] || project.icon || "📁"}
-            </div>
-            <div className="p-6">
-              <span className="text-primary text-xs font-semibold uppercase tracking-wider">{project.category}</span>
-              <h3 className="text-lg font-semibold mt-2">{project.title}</h3>
-              <p className="text-text text-sm mt-2">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.tags && project.tags.map((tag, j) => (
-                  <span key={j} className="px-2.5 py-1 text-xs rounded-full border border-border text-text">{tag}</span>
-                ))}
+      <div className="row">
+        {portfolio.slice(0, 3).map((project, i) => (
+          <div key={i} className="col-12 md:col-4 mb-6">
+            <div className="card p-0 overflow-hidden">
+              <div className="h-48 flex items-center justify-center bg-primary/5 text-5xl">
+                {project.icon || "📁"}
+              </div>
+              <div className="p-6">
+                <span className="text-primary text-xs font-semibold uppercase tracking-wider">{project.category}</span>
+                <h3 className="text-text-dark text-lg font-semibold mt-2">{project.title}</h3>
+                <p className="text-text text-sm mt-1">{project.description}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <div className="text-center mt-10">
+      <div className="text-center mt-8">
         <Link href="/portfolio" className="btn btn-outline-primary">View All Projects</Link>
       </div>
     </div>
