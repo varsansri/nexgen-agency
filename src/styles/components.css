@@ -26,7 +26,44 @@
 }
 
 .feature-card {
-  @apply transition-all duration-200 ease-in-out hover:shadow bg-body border border-border;
+  @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg bg-body border border-border;
+}
+
+.feature-card:hover {
+  @apply border-primary/30;
+}
+
+/* gradient text utility */
+.gradient-text {
+  @apply bg-gradient-to-r from-white via-white to-primary/70 bg-clip-text text-transparent;
+}
+
+/* scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* decorative glow orb */
+.glow-orb {
+  @apply absolute rounded-full blur-3xl opacity-30 pointer-events-none;
+}
+
+/* animated underline */
+.animated-underline {
+  @apply relative;
+}
+.animated-underline::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+}
+.animated-underline:hover::after {
+  @apply w-full;
 }
 
 .service-carousel .swiper-pagination {

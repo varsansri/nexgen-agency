@@ -1,11 +1,21 @@
 ---
 banner:
   title: We craft digital experiences that drive growth
-  content: Full-service digital agency combining strategy, design, and technology to help brands scale and succeed in the digital landscape. Trusted by 200+ businesses worldwide.
+  content: Full-service digital agency combining strategy, design, and technology to help brands scale and succeed in the digital landscape.
   image: /nexgen-agency/images/banner-art.svg
   button:
     label: "Start Your Project"
     link: "/contact"
+
+stats:
+  - number: "200+"
+    label: "Projects Delivered"
+  - number: "50+"
+    label: "Team Members"
+  - number: "12"
+    label: "Years Experience"
+  - number: "98%"
+    label: "Client Retention"
 
 feature:
   title: Why Choose NexGen Digital
@@ -65,6 +75,37 @@ services:
       enable: true
       label: Learn More
       link: /services
+
+portfolio:
+  - title: "LuxeStore E-Commerce"
+    category: "E-Commerce"
+    description: "Complete platform redesign — 40% conversion lift."
+    tags: ["Next.js", "Shopify", "Tailwind"]
+    icon: "🛍️"
+  - title: "MediConnect Platform"
+    category: "Healthcare"
+    description: "Telemedicine app — 100K+ patients across 12 countries."
+    tags: ["React Native", "Node.js", "WebRTC"]
+    icon: "🏥"
+  - title: "LearnFlow LMS"
+    category: "EdTech"
+    description: "AI-powered learning platform — 50K+ active students."
+    tags: ["Next.js", "Python", "AI/ML"]
+    icon: "📚"
+
+testimonials:
+  - quote: "NexGen transformed our digital presence. Our conversion rate doubled within three months. The team was professional, responsive, and truly invested in our success."
+    name: "Sarah Reynolds"
+    role: "CEO, Bloom Cosmetics"
+    initials: "SR"
+  - quote: "Working with NexGen was a game-changer. They built our mobile app from scratch — 50K downloads in the first month. Incredible work."
+    name: "Marcus Chen"
+    role: "CTO, FitPulse"
+    initials: "MC"
+  - quote: "The branding work they did for our startup was exceptional. Our Series A investors specifically mentioned our polished brand identity."
+    name: "Elena Kowalski"
+    role: "Founder, Nuvia Health"
+    initials: "EK"
 
 workflow:
   title: "Our proven process — from idea to launch"
