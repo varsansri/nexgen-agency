@@ -1,0 +1,40 @@
+{
+  "site": {
+    "title": "NexGen Digital — Creative Marketing Agency",
+    "base_url": "/",
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "200",
+    "logo_height": "48",
+    "logo_text": "NexGen Digital"
+  },
+
+  "settings": {
+    "pagination": 4,
+    "summary_length": 200,
+    "blog_folder": "blogs"
+  },
+
+  "nav_button": {
+    "enable": true,
+    "label": "Get a Quote",
+    "link": "/contact"
+  },
+
+  "params": {
+    "contact_form_action": "https://formspree.io/f/your-form-id",
+    "footer_content": "Full-service digital agency combining strategy, design, and technology to help brands scale and succeed.",
+    "copyright": "© 2024 NexGen Digital. All rights reserved."
+  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  },
+
+  "metadata": {
+    "meta_author": "NexGen Digital",
+    "meta_image": "/images/banner-art.svg",
+    "meta_description": "NexGen Digital is a full-service creative agency specializing in web development, branding, and growth marketing. We help brands scale."
+  }
+}

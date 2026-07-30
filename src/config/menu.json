@@ -1,0 +1,93 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Services",
+      "url": "/services"
+    },
+    {
+      "name": "Portfolio",
+      "url": "/portfolio"
+    },
+    {
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "Blog",
+      "url": "/blogs"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Services",
+      "menu": [
+        {
+          "text": "Web Development",
+          "url": "/services#web-development"
+        },
+        {
+          "text": "Mobile Apps",
+          "url": "/services#mobile-apps"
+        },
+        {
+          "text": "Brand Identity",
+          "url": "/services#brand-identity"
+        },
+        {
+          "text": "Growth Marketing",
+          "url": "/services#growth-marketing"
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "menu": [
+        {
+          "text": "About",
+          "url": "/about"
+        },
+        {
+          "text": "Portfolio",
+          "url": "/portfolio"
+        },
+        {
+          "text": "Blog",
+          "url": "/blogs"
+        },
+        {
+          "text": "Contact",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "name": "Support",
+      "menu": [
+        {
+          "text": "FAQ",
+          "url": "/faq"
+        },
+        {
+          "text": "Pricing",
+          "url": "/pricing"
+        },
+        {
+          "text": "Privacy Policy",
+          "url": "/privacy"
+        },
+        {
+          "text": "Terms & Conditions",
+          "url": "/terms"
+        }
+      ]
+    }
+  ]
+}
