@@ -1,5 +1,6 @@
 import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
+import LiquidGlassCard from "@layouts/components/LiquidGlassCard";
 
 const HomeFeatures = ({ feature }) => (
   <section className="section bg-light">
@@ -12,7 +13,7 @@ const HomeFeatures = ({ feature }) => (
       <div className="row">
         {feature.features.map((item, i) => (
           <div className="col-12 sm:col-6 lg:col-4 mb-6" key={`feature-${i}`}>
-            <div className="feature-card rounded-xl p-6 text-center h-full flex flex-col items-center bg-body border border-border/80 hover:border-primary/40 hover:shadow-lg transition-all duration-300">
+            <LiquidGlassCard className="p-6 text-center h-full flex flex-col items-center">
               {item.icon && (
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <Image src={item.icon} width={32} height={32} alt={item.name} />
@@ -20,7 +21,7 @@ const HomeFeatures = ({ feature }) => (
               )}
               {markdownify(item.name, "h3", "h5 mb-3 text-text-dark font-bold")}
               <p className="text-text text-sm leading-relaxed">{item.content}</p>
-            </div>
+            </LiquidGlassCard>
           </div>
         ))}
       </div>

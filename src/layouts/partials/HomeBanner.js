@@ -1,9 +1,19 @@
+"use client";
 import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const ShaderGradientCanvas = dynamic(
+  () => import("@layouts/components/ShaderGradientCanvas"),
+  { ssr: false }
+);
 
 const HomeBanner = ({ banner }) => (
   <section className="section pt-12 pb-20 relative overflow-hidden">
+    {/* 3D WebGL Shader Gradient Canvas */}
+    <ShaderGradientCanvas />
+
     {/* Background Decorative Ambient Glows */}
     <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/15 blur-[120px] rounded-full pointer-events-none -z-10 animate-pulse-glow" />
     <div className="absolute bottom-10 right-10 w-80 h-80 bg-violet-600/10 blur-[100px] rounded-full pointer-events-none -z-10" />
