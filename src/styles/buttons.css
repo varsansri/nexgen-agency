@@ -1,20 +1,16 @@
 .btn {
-  @apply inline-block font-primary font-bold border px-7 py-3.5 rounded-[30px];
-  transition: transform 160ms var(--ease-fast), box-shadow 150ms var(--ease-fast);
+  @apply inline-flex items-center justify-center font-primary font-bold border px-7 py-3.5 rounded-full cursor-pointer select-none text-center;
+  transition: transform 220ms var(--ease-spring), box-shadow 220ms var(--ease-spring), background-color 180ms var(--ease-fast), border-color 180ms var(--ease-fast);
 }
 
-.btn:active { transform: scale(0.97); }
+.btn:active {
+  transform: scale(0.96) !important;
+}
 
 .btn-primary {
-  @apply bg-primary text-white border-transparent hover:shadow-lg;
+  @apply bg-primary text-white border-primary/50 shadow-md shadow-primary/20 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5 active:translate-y-0;
 }
 
 .btn-outline-primary {
-  @apply text-text border border-primary bg-transparent hover:text-primary hover:bg-primary/5;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .btn-primary:hover { transform: translateY(-1px); }
-  .btn-primary:active { transform: translateY(0) scale(0.97); }
-  .btn-outline-primary:hover { transform: translateY(-1px); }
+  @apply text-text-dark border border-primary/40 bg-body/60 backdrop-blur-sm hover:text-white hover:bg-primary/15 hover:border-primary hover:-translate-y-0.5 active:translate-y-0 shadow-sm;
 }

@@ -18,30 +18,40 @@
 }
 
 .feature-card {
-  @apply border border-border bg-body;
-  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), border-color 200ms var(--ease-out);
+  @apply border border-border/80 bg-body/90 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300;
+  transition: transform 260ms var(--ease-spring), box-shadow 260ms var(--ease-spring), border-color 200ms var(--ease-fast);
 }
 @media (hover: hover) and (pointer: fine) {
-  .feature-card:hover { @apply -translate-y-1 border-primary/30 shadow-lg; }
+  .feature-card:hover {
+    @apply -translate-y-1.5 border-primary/50 shadow-xl shadow-primary/10;
+  }
 }
 
-.service-carousel .swiper-pagination { @apply flex justify-center; }
+.service-carousel .swiper-pagination { @apply flex justify-center mt-6; }
 .service-carousel .swiper-pagination span {
-  @apply mx-1.25 inline-block h-2.5 w-2.5 cursor-pointer rounded-full border border-primary;
-  transition: background-color 200ms var(--ease-fast);
+  @apply mx-1.25 inline-block h-2.5 w-2.5 cursor-pointer rounded-full border border-primary/50 bg-primary/20;
+  transition: all 200ms var(--ease-spring);
 }
-.service-carousel .swiper-pagination span.swiper-pagination-bullet-active { @apply bg-primary; }
+.service-carousel .swiper-pagination span.swiper-pagination-bullet-active {
+  @apply bg-primary w-6 rounded-full border-primary;
+}
 
-.cta-link img { transition: margin 200ms var(--ease-out); }
-.cta-link:hover img { @apply ml-2; }
+.cta-link img { transition: transform 200ms var(--ease-spring); }
+.cta-link:hover img { transform: translateX(6px); }
 
 .card {
-  @apply rounded-xl border border-border bg-body p-8;
-  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), border-color 200ms var(--ease-out);
+  @apply rounded-2xl border border-border/80 bg-body/90 backdrop-blur-sm p-8;
+  transition: transform 260ms var(--ease-spring), box-shadow 260ms var(--ease-spring), border-color 200ms var(--ease-fast);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    @apply -translate-y-1 border-primary/40 shadow-xl shadow-primary/10;
+  }
 }
 
-.col-recommended { @apply relative z-10 md:-mx-8 md:-my-6; }
-.col-recommended .card { @apply border-primary/50 shadow-lg; }
+.glass-card {
+  @apply bg-body/60 backdrop-blur-md border border-border/80 rounded-2xl shadow-sm;
+}
 
 .faq-head::before {
   @apply absolute -left-8 top-1 h-6 w-6 content-[""];

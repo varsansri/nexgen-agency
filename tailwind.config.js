@@ -27,23 +27,23 @@ module.exports = {
       },
       fontFamily: {
         primary: [
-          "Inter",
+          "Plus Jakarta Sans",
           "sans-serif",
         ],
       },
       fontSize: {
-        "h1": "1.2000rem",
-        "h1-sm": "1.0800rem",
-        "h2": "1.4400rem",
-        "h2-sm": "1.2960rem",
-        "h3": "1.7280rem",
-        "h3-sm": "1.5552rem",
-        "h4": "2.0736rem",
-        "h4-sm": "1.8662rem",
-        "h5": "2.4883rem",
-        "h5-sm": "2.2395rem",
-        "h6": "2.9860rem",
-        "h6-sm": "2.6874rem"
+        "h1": "4.1962rem",
+        "h1-sm": "3.6240rem",
+        "h2": "3.3569rem",
+        "h2-sm": "2.8992rem",
+        "h3": "2.6855rem",
+        "h3-sm": "2.3193rem",
+        "h4": "2.1484rem",
+        "h4-sm": "1.8555rem",
+        "h5": "1.7188rem",
+        "h5-sm": "1.4844rem",
+        "h6": "1.3750rem",
+        "h6-sm": "1.1875rem"
 },
       spacing: {
         1.25: "0.3125rem",

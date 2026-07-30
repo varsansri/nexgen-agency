@@ -35,15 +35,15 @@ function AnimatedCounter({ target, suffix = "" }) {
 }
 
 const HomeStats = ({ stats }) => (
-  <section className="section bg-light">
+  <section className="py-12 bg-light/60 border-y border-border/60 relative">
     <div className="container">
-      <div className="row text-center">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         {stats.map((stat, i) => (
-          <div key={i} className="col-6 lg:col-3 mb-6 lg:mb-0">
-            <div className="text-4xl font-bold text-primary">
+          <div key={i} className="p-6 rounded-2xl bg-body/60 border border-border/70 backdrop-blur-sm hover:border-primary/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+            <div className="text-4xl md:text-5xl font-extrabold font-primary bg-gradient-to-r from-white via-primary to-purple-300 bg-clip-text text-transparent group-hover:scale-105 transition-transform">
               <AnimatedCounter target={parseInt(stat.number)} suffix={stat.number.replace(/[0-9]/g, "")} />
             </div>
-            <div className="text-text text-sm mt-2">{stat.label}</div>
+            <div className="text-text/90 text-sm font-semibold mt-3 tracking-wide">{stat.label}</div>
           </div>
         ))}
       </div>

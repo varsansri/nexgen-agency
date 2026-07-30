@@ -1,24 +1,24 @@
 .header {
-  @apply bg-body border-b border-border sticky top-0 z-50;
+  @apply bg-body/80 backdrop-blur-md border-b border-border/70 sticky top-0 z-50 transition-all duration-300;
 }
 
 .navbar {
-  @apply container relative flex flex-wrap items-center justify-between py-3;
+  @apply container relative flex flex-wrap items-center justify-between py-3.5;
 }
 
 .navbar-brand {
-  @apply text-xl font-semibold text-text-dark;
+  @apply text-xl font-bold text-text-dark tracking-tight transition-transform hover:scale-[1.02];
 }
 
 .navbar-nav { @apply text-center md:text-left; }
 
 #nav-menu { @apply w-full overflow-hidden md:max-h-full md:w-auto; }
 
-.nav-item { @apply lg:mx-3; }
+.nav-item { @apply lg:mx-2.5; }
 
 .nav-link {
-  @apply block py-2 px-3 font-primary text-base font-bold text-text-dark;
-  transition: color 150ms var(--ease-fast);
+  @apply block py-2 px-3.5 font-primary text-sm font-semibold text-text-dark/90 rounded-full;
+  transition: color 180ms var(--ease-spring), background-color 180ms var(--ease-spring), transform 180ms var(--ease-spring);
 }
-.nav-link:hover { @apply text-primary; }
-.nav-link-active { @apply text-primary; }
+.nav-link:hover { @apply text-white bg-primary/10 -translate-y-0.5; }
+.nav-link-active { @apply text-primary bg-primary/15 font-bold; }

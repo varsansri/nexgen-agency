@@ -19,9 +19,9 @@ function generateTailwindConfig() {
 
   const sizes = {};
   for (let i = 1; i <= 6; i++) {
-    const size = Math.pow(scale, i);
-    sizes[`h${i}`] = `${size.toFixed(4)}rem`;
-    sizes[`h${i}-sm`] = `${(size * 0.9).toFixed(4)}rem`;
+    const size = Math.pow(scale, 7 - i);
+    sizes[`h${i}`] = `${(size * 1.1).toFixed(4)}rem`;
+    sizes[`h${i}-sm`] = `${(size * 0.95).toFixed(4)}rem`;
   }
 
   const config = `const fs = require("fs");
