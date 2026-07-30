@@ -48,8 +48,8 @@ const Posts = ({ posts }) => {
       </div>
       {posts.slice(1).map((post, i) => (
         <div key={`key-${i}`} className="col-12 mb-8 sm:col-6 lg:col-4" style={{
-          animation: `fadeInUp 0.5s var(--ease-out) forwards`,
-          animationDelay: `${i * 80}ms`,
+          animation: `fadeInUp 300ms var(--ease-out) forwards`,
+          animationDelay: `${i * 50}ms`,
           opacity: 0,
         }}>
           {post.frontmatter.image && (

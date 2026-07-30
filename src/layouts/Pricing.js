@@ -1,10 +1,14 @@
 import Link from "next/link";
 import Cta from "./components/Cta";
 
+const stagger = (i) => ({
+  animation: `fadeInUp 300ms var(--ease-out) forwards`,
+  animationDelay: `${i * 50}ms`,
+  opacity: 0,
+});
+
 function Pricing({ data }) {
-  const {
-    frontmatter: { title, plans, call_to_action },
-  } = data;
+  const { frontmatter: { title, plans, call_to_action } } = data;
   return (
     <>
       <section className="section pb-0">
@@ -13,36 +17,26 @@ function Pricing({ data }) {
           <div className="section row -mt-10 justify-center md:mt-0">
             {plans.map((plan, index) => (
               <div
-                className={`col-12 md:col-4 ${
-                  !plan.recommended ? "lg:px-0" : "col-recommended"
-                }`}
+                className={`col-12 md:col-4 ${!plan.recommended ? "lg:px-0" : "col-recommended"}`}
                 key={plan.title + index}
+                style={stagger(index)}
               >
-                <div className="card text-center">
+                <div className="card text-center" style={{
+                  transition: "transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out)",
+                }}>
                   <h4 className="h5">{plan.title}</h4>
                   <div className="mt-5">
-                    <span className="text-5xl text-text-dark">
-                      ${plan.price}
-                    </span>
+                    <span className="text-5xl text-text-dark">${plan.price}</span>
                     <span>/ {plan.type}</span>
                   </div>
-                  <h5 className="mt-2 font-normal text-text h6">
-                    {plan.subtitle}
-                  </h5>
+                  <h5 className="mt-2 font-normal text-text h6">{plan.subtitle}</h5>
                   <ul className="mt-5">
                     {plan.features.map((feature, index) => (
-                      <li className="mb-[10px] leading-5" key={index}>
-                        {feature}
-                      </li>
+                      <li className="mb-[10px] leading-5" key={index}>{feature}</li>
                     ))}
                   </ul>
-                  <Link
-                    className={`btn mt-5 ${
-                      plan.recommended ? "btn-primary" : "btn-outline-primary"
-                    }`}
-                    href={plan.button.link}
-                    rel={plan.button.rel}
-                  >
+                  <Link className={`btn mt-5 ${plan.recommended ? "btn-primary" : "btn-outline-primary"}`}
+                    href={plan.button.link} rel={plan.button.rel}>
                     {plan.button.label}
                   </Link>
                 </div>

@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const stagger = (i) => ({
-  animation: `fadeInUp 0.5s var(--ease-out) forwards`,
-  animationDelay: `${i * 80}ms`,
+  animation: `fadeInUp 300ms var(--ease-out) forwards`,
+  animationDelay: `${i * 50}ms`,
   opacity: 0,
 });
 

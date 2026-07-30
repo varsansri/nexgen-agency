@@ -2,8 +2,8 @@ import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
 
 const stagger = (i) => ({
-  animation: `fadeInUp 0.5s var(--ease-out) forwards`,
-  animationDelay: `${i * 60}ms`,
+  animation: `fadeInUp 300ms var(--ease-out) forwards`,
+  animationDelay: `${i * 50}ms`,
   opacity: 0,
 });
 
