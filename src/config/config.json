@@ -2,8 +2,8 @@
   "site": {
     "title": "NexGen Digital — Creative Marketing Agency",
     "base_url": "/",
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
+    "favicon": "/nexgen-agency/images/favicon.png",
+    "logo": "/nexgen-agency/images/logo.png",
     "logo_width": "200",
     "logo_height": "48",
     "logo_text": "NexGen Digital"
@@ -34,7 +34,7 @@
 
   "metadata": {
     "meta_author": "NexGen Digital",
-    "meta_image": "/images/banner-art.svg",
+    "meta_image": "/nexgen-agency/images/banner-art.svg",
     "meta_description": "NexGen Digital is a full-service creative agency specializing in web development, branding, and growth marketing. We help brands scale."
   }
 }

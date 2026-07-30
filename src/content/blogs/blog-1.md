@@ -1,7 +1,7 @@
 ---
 title: "How a Website Redesign Increased Conversions by 40%"
 description: "A deep dive into how strategic UX changes and performance optimization transformed a client's conversion rate."
-image: "/images/blog-1.jpg"
+image: "/nexgen-agency/images/blog-1.jpg"
 date: 2026-04-04T05:00:00Z
 draft: false
 ---

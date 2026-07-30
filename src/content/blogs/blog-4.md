@@ -1,7 +1,7 @@
 ---
 title: "Why Your Business Needs a Mobile App in 2026"
 description: "Mobile apps aren't just for tech companies. Here's why every business should consider a mobile strategy and how to get started."
-image: "/images/blog-4.jpg"
+image: "/nexgen-agency/images/blog-4.jpg"
 date: 2026-02-20T05:00:00Z
 draft: false
 ---

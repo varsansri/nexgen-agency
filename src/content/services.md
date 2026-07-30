@@ -4,7 +4,7 @@ layout: services
 draft: false
 services:
   - title: "Web Development"
-    icon: "/images/code.svg"
+    icon: "/nexgen-agency/images/code.svg"
     description: "Custom websites and web applications engineered for performance, scalability, and exceptional user experience."
     details:
       - "Next.js, React & TypeScript development"
@@ -15,7 +15,7 @@ services:
       - "Performance optimization & Core Web Vitals"
 
   - title: "Mobile Apps"
-    icon: "/images/oop.svg"
+    icon: "/nexgen-agency/images/oop.svg"
     description: "Native and cross-platform mobile applications that deliver seamless experiences across all devices."
     details:
       - "React Native & Flutter development"
@@ -26,7 +26,7 @@ services:
       - "Post-launch monitoring & analytics"
 
   - title: "Brand Identity"
-    icon: "/images/love.svg"
+    icon: "/nexgen-agency/images/love.svg"
     description: "Strategic branding that resonates with your audience and differentiates you in the market."
     details:
       - "Logo design & brand marks"
@@ -37,7 +37,7 @@ services:
       - "Motion design & animations"
 
   - title: "Growth Marketing"
-    icon: "/images/speedometer.svg"
+    icon: "/nexgen-agency/images/speedometer.svg"
     description: "Data-driven marketing strategies that turn visitors into customers and customers into advocates."
     details:
       - "SEO audits & optimization"
@@ -48,7 +48,7 @@ services:
       - "Analytics & reporting dashboards"
 
   - title: "UI/UX Design"
-    icon: "/images/cloud.svg"
+    icon: "/nexgen-agency/images/cloud.svg"
     description: "User-centered design that creates intuitive, engaging, and conversion-focused digital experiences."
     details:
       - "User research & persona development"
@@ -59,7 +59,7 @@ services:
       - "Design-to-code handoff"
 
   - title: "Cloud & DevOps"
-    icon: "/images/user-clock.svg"
+    icon: "/nexgen-agency/images/user-clock.svg"
     description: "Cloud-native infrastructure and automated deployment pipelines for reliable, scalable applications."
     details:
       - "AWS, GCP & Azure architecture"
@@ -72,7 +72,7 @@ services:
 call_to_action:
   title: Ready to start your project?
   content: Tell us about your goals and we'll put together a tailored strategy and proposal.
-  image: '/images/cta.svg'
+  image: '/nexgen-agency/images/cta.svg'
   button:
     enable: true
     label: "Get a Free Consultation"

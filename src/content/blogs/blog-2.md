@@ -1,7 +1,7 @@
 ---
 title: "The Complete Guide to Brand Identity for Startups"
 description: "Everything you need to know about building a memorable brand identity that resonates with your target audience."
-image: "/images/blog-2.jpg"
+image: "/nexgen-agency/images/blog-2.jpg"
 date: 2026-03-28T05:00:00Z
 draft: false
 ---

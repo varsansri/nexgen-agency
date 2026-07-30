@@ -1,7 +1,7 @@
 ---
 title: "SEO Trends That Will Dominate 2026"
 description: "Stay ahead of the curve with these search engine optimization strategies that are shaping the future of digital marketing."
-image: "/images/blog-3.jpg"
+image: "/nexgen-agency/images/blog-3.jpg"
 date: 2026-03-15T05:00:00Z
 draft: false
 ---

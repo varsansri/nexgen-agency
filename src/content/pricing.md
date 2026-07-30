@@ -53,7 +53,7 @@ plans:
 call_to_action:
   title: Need a custom solution?
   content: Every business is unique. Contact us for a tailored proposal that fits your specific needs and budget.
-  image: '/images/cta.svg'
+  image: '/nexgen-agency/images/cta.svg'
   button:
     enable: true
     label: "Contact Us"

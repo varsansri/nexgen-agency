@@ -1,7 +1,7 @@
 ---
 title: "Agile vs Waterfall: Choosing the Right Methodology"
 description: "Understanding when to use agile, waterfall, or hybrid approaches for your web development project."
-image: "/images/blog-5.jpg"
+image: "/nexgen-agency/images/blog-5.jpg"
 date: 2026-02-05T05:00:00Z
 draft: false
 ---
