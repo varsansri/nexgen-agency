@@ -2,8 +2,8 @@
   "site": {
     "title": "NexGen Digital — Creative Marketing Agency",
     "base_url": "/",
-    "favicon": "/nexgen-agency/images/favicon.png",
-    "logo": "/nexgen-agency/images/logo.png",
+    "favicon": "/nexgen-agency/images/favicon.svg",
+    "logo": "/nexgen-agency/images/logo.svg",
     "logo_width": "200",
     "logo_height": "48",
     "logo_text": "NexGen Digital"

@@ -48,18 +48,17 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
 
-        {/* theme meta */}
         <meta name="theme-name" content="nexgen-digital" />
-        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileColor" content="#8b5cf6" />
         <meta
           name="theme-color"
           media="(prefers-color-scheme: light)"
-          content="#fff"
+          content="#8b5cf6"
         />
         <meta
           name="theme-color"
           media="(prefers-color-scheme: dark)"
-          content="#000"
+          content="#08081a"
         />
       </head>
       <body suppressHydrationWarning>

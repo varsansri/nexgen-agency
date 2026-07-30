@@ -2,18 +2,22 @@
 import { useEffect, useRef, useState } from "react";
 
 function AnimatedCounter({ target, suffix = "" }) {
-  const [count, setCount] = useState(0);
+  const num = parseInt(target);
+  const [count, setCount] = useState(num);
   const ref = useRef(null);
   const started = useRef(false);
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
           let start = 0;
-          const num = parseInt(target);
-          const step = Math.ceil(num / 40);
+          const step = Math.ceil(num / 30);
+          setCount(0);
           const timer = setInterval(() => {
             start += step;
             if (start >= num) { start = num; clearInterval(timer); }

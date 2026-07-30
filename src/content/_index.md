@@ -4,6 +4,7 @@ banner:
   content: Full-service digital agency combining strategy, design, and technology to help brands scale and succeed in the digital landscape.
   image: /nexgen-agency/images/banner-art.svg
   button:
+    enable: true
     label: "Start Your Project"
     link: "/contact"
 
