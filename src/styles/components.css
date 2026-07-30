@@ -26,7 +26,7 @@
 }
 
 .feature-card {
-  @apply transition-all duration-200 ease-in-out hover:shadow;
+  @apply transition-all duration-200 ease-in-out hover:shadow bg-body border border-border;
 }
 
 .service-carousel .swiper-pagination {
@@ -47,7 +47,7 @@
 }
 
 .card {
-  @apply mt-10 rounded-sm border border-[rgba(0,0,0,.125)] bg-white px-5 py-12 shadow md:mt-0;
+  @apply mt-10 rounded-sm border border-border bg-body px-5 py-12 shadow md:mt-0;
 }
 
 .col-recommended {
