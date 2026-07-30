@@ -15,7 +15,7 @@
   },
   "fonts": {
     "font_family": {
-      "primary": "Plus+Jakarta+Sans:wght@400;500;600;700;800",
+      "primary": "Sora:wght@400;600;700;800",
       "primary_type": "sans-serif"
     },
     "font_size": {

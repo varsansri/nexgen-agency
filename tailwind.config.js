@@ -27,7 +27,7 @@ module.exports = {
       },
       fontFamily: {
         primary: [
-          "Plus Jakarta Sans",
+          "Sora",
           "sans-serif",
         ],
       },
