@@ -47,7 +47,11 @@ const Posts = ({ posts }) => {
         </div>
       </div>
       {posts.slice(1).map((post, i) => (
-        <div key={`key-${i}`} className="col-12 mb-8 sm:col-6 lg:col-4">
+        <div key={`key-${i}`} className="col-12 mb-8 sm:col-6 lg:col-4" style={{
+          animation: `fadeInUp 0.5s var(--ease-out) forwards`,
+          animationDelay: `${i * 80}ms`,
+          opacity: 0,
+        }}>
           {post.frontmatter.image && (
             <Image
               className="rounded-lg"

@@ -10,3 +10,14 @@
 
 @import "./utilities.css";
 @import "./safe.css";
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

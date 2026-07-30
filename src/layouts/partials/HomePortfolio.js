@@ -1,5 +1,20 @@
 import Link from "next/link";
 
+const stagger = (i) => ({
+  animation: `fadeInUp 0.5s var(--ease-out) forwards`,
+  animationDelay: `${i * 80}ms`,
+  opacity: 0,
+});
+
+const iconMap = {
+  "E-Commerce": "🛍️",
+  "Healthcare": "🏥",
+  "EdTech": "📚",
+  "Branding": "🎨",
+  "SaaS": "⚡",
+  "Mobile": "📱",
+};
+
 const HomePortfolio = ({ portfolio }) => (
   <section className="section">
     <div className="container">
@@ -10,9 +25,9 @@ const HomePortfolio = ({ portfolio }) => (
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {portfolio.slice(0, 6).map((project, i) => (
-          <div key={i} className="group relative rounded-xl overflow-hidden border border-border bg-body hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
-            <div className="h-48 flex items-center justify-center bg-primary/5 text-5xl text-primary/20">
-              {project.icon || "📁"}
+          <div key={i} className="group relative rounded-xl overflow-hidden border border-border bg-body hover:border-primary/40 hover:-translate-y-1 shadow-sm hover:shadow-lg" style={{ ...stagger(i), transition: "transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), border-color 200ms var(--ease-out)" }}>
+            <div className="h-48 flex items-center justify-center bg-primary/5 text-5xl">
+              {iconMap[project.category] || project.icon || "📁"}
             </div>
             <div className="p-6">
               <span className="text-primary text-xs font-semibold uppercase tracking-wider">{project.category}</span>

@@ -1,12 +1,19 @@
 .btn {
-  @apply inline-block font-primary font-bold border px-7 py-4.25 leading-4.5 transition;
+  @apply inline-block font-primary font-bold border px-7 py-4.25 leading-4.5;
+  transition: transform 100ms var(--ease-fast), box-shadow 150ms var(--ease-fast), border-color 150ms var(--ease-fast);
+  will-change: transform;
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-primary {
-  @apply bg-primary text-white border-transparent rounded-[30px] relative hover:shadow transition-all;
+  @apply bg-primary text-white border-transparent rounded-[30px] relative hover:shadow;
 }
 .btn-primary:after {
-  @apply w-full h-full rounded-[30px] absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] content-[""] bg-primary transition-all duration-300 ease-in-out z-[-1];
+  @apply w-full h-full rounded-[30px] absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] content-[""] bg-primary z-[-1];
+  transition: width 300ms var(--ease-out), height 300ms var(--ease-out);
 }
 .btn-primary:hover::after {
   @apply w-[110%] h-[110%];
@@ -16,8 +23,21 @@
   @apply relative text-text border-0 bg-transparent rounded-[30px] hover:border-transparent hover:text-primary;
 }
 .btn-outline-primary:after {
-  @apply w-full h-full rounded-[30px] absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] content-[""] bg-transparent border border-primary transition-all duration-300 ease-in-out z-0;
+  @apply w-full h-full rounded-[30px] absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] content-[""] bg-transparent border border-primary z-0;
+  transition: width 300ms var(--ease-out), height 300ms var(--ease-out);
 }
 .btn-outline-primary:hover::after {
   @apply w-[110%] h-[110%];
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0) scale(0.97);
+  }
+  .btn-outline-primary:hover {
+    transform: translateY(-1px);
+  }
 }

@@ -9,14 +9,15 @@
   @apply inline-block;
 }
 .social-icons li a {
-  @apply block h-9 w-9 rounded-full border border-primary text-center text-white transition hover:bg-primary;
+  @apply block h-9 w-9 rounded-full border border-primary text-center text-white;
+  transition: background-color 150ms var(--ease-fast), border-color 150ms var(--ease-fast);
 }
 .social-icons li a svg {
   @apply m-auto h-9 fill-primary;
+  transition: fill 150ms var(--ease-fast);
 }
-.social-icons li a:hover svg {
-  @apply fill-white;
-}
+.social-icons li a:hover { @apply bg-primary; }
+.social-icons li a:hover svg { @apply fill-white; }
 
 .content {
   @apply prose max-w-none prose-headings:font-bold prose-h1:mb-4 prose-h1:text-h1-sm prose-h2:mb-4 prose-h2:mt-4 prose-h2:text-h2-sm prose-h3:mt-4 prose-h3:text-h3-sm prose-h4:mt-4 prose-h5:mb-4 prose-h5:text-base prose-h6:mb-6 prose-h6:text-[15px] prose-a:no-underline hover:prose-a:text-primary prose-blockquote:border-primary prose-blockquote:py-1 prose-blockquote:px-4 prose-ol:pl-4 prose-ul:list-none prose-ul:pl-0 prose-hr:my-5 md:prose-h1:text-h1 md:prose-h2:text-h2 md:prose-h3:text-h3;
@@ -26,41 +27,41 @@
 }
 
 .feature-card {
-  @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg bg-body border border-border;
+  @apply bg-body border border-border;
+  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), border-color 200ms var(--ease-out);
+  will-change: transform;
+}
+@media (hover: hover) and (pointer: fine) {
+  .feature-card:hover {
+    @apply -translate-y-1 shadow-lg border-primary/30;
+  }
 }
 
-.feature-card:hover {
-  @apply border-primary/30;
-}
-
-/* gradient text utility */
 .gradient-text {
   @apply bg-gradient-to-r from-white via-white to-primary/70 bg-clip-text text-transparent;
 }
 
-/* scroll reveal animation */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(24px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
 }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* decorative glow orb */
 .glow-orb {
   @apply absolute rounded-full blur-3xl opacity-30 pointer-events-none;
 }
 
-/* animated underline */
 .animated-underline {
   @apply relative;
 }
 .animated-underline::after {
   content: "";
-  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary;
+  transition: width 200ms var(--ease-out);
 }
 .animated-underline:hover::after {
   @apply w-full;
@@ -71,13 +72,14 @@
 }
 .service-carousel .swiper-pagination span {
   @apply mx-1.25 inline-block h-2.5 w-2.5 cursor-pointer rounded-full border border-primary;
+  transition: background-color 200ms var(--ease-fast);
 }
 .service-carousel .swiper-pagination span.swiper-pagination-bullet-active {
   @apply bg-primary;
 }
 
 .cta-link img {
-  transition: margin 0.3s ease;
+  transition: margin 200ms var(--ease-out);
 }
 .cta-link:hover img {
   @apply ml-2;
@@ -85,6 +87,7 @@
 
 .card {
   @apply mt-10 rounded-sm border border-border bg-body px-5 py-12 shadow md:mt-0;
+  transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out);
 }
 
 .col-recommended {
@@ -105,4 +108,11 @@
 
 .contact-list a {
   @apply font-semibold text-text-dark;
+}
+
+/* portfolio card hover lift */
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .group-hover\:lift {
+    transform: translateY(-4px);
+  }
 }

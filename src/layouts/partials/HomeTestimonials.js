@@ -1,17 +1,28 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const HomeTestimonials = ({ testimonials }) => {
   const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const containerRef = useRef(null);
   const total = testimonials.length;
 
-  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
-  const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
+  const goTo = useCallback((index) => {
+    if (animating) return;
+    setAnimating(true);
+    setCurrent(index);
+    setTimeout(() => setAnimating(false), 400);
+  }, [animating]);
+
+  const next = useCallback(() => goTo((current + 1) % total), [current, total, goTo]);
+  const prev = useCallback(() => goTo((current - 1 + total) % total), [current, total, goTo]);
 
   useEffect(() => {
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(() => {
+      if (!animating) next();
+    }, 6000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [animating, next]);
 
   return (
     <section className="section bg-light relative overflow-hidden">
@@ -21,8 +32,14 @@ const HomeTestimonials = ({ testimonials }) => {
           <span className="text-primary text-sm font-semibold uppercase tracking-widest">Testimonials</span>
           <h2 className="mt-3">What Our Clients Say</h2>
         </div>
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center px-4">
+        <div className="max-w-3xl mx-auto" ref={containerRef}>
+          <div className="text-center px-4"
+            style={{
+              opacity: animating ? 0 : 1,
+              transform: animating ? "translateY(8px)" : "translateY(0)",
+              transition: "opacity 250ms var(--ease-out), transform 300ms var(--ease-out)",
+            }}
+          >
             <div className="flex justify-center gap-1 text-primary mb-6">
               {[...Array(5)].map((_, i) => (
                 <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
@@ -32,7 +49,7 @@ const HomeTestimonials = ({ testimonials }) => {
             </div>
             <p className="text-lg leading-relaxed italic mb-8">&ldquo;{testimonials[current].quote}&rdquo;</p>
             <div className="flex items-center justify-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary transition-colors duration-300">
                 {testimonials[current].initials}
               </div>
               <div className="text-left">
@@ -42,15 +59,30 @@ const HomeTestimonials = ({ testimonials }) => {
             </div>
           </div>
           <div className="flex justify-center mt-8 gap-4">
-            <button onClick={prev} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
+            <button onClick={prev} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary"
+              style={{ transition: "border-color 150ms var(--ease-fast), color 150ms var(--ease-fast), transform 100ms var(--ease-fast)" }}
+              onMouseDown={e => e.currentTarget.style.transform = "scale(0.95)"}
+              onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
+            >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             </button>
             <div className="flex items-center gap-2">
               {testimonials.map((_, i) => (
-                <button key={i} onClick={() => setCurrent(i)} className={`w-2.5 h-2.5 rounded-full transition-colors ${i === current ? "bg-primary" : "bg-border"}`} />
+                <button key={i} onClick={() => goTo(i)}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: i === current ? "24px" : "10px",
+                    height: "10px",
+                    backgroundColor: i === current ? "rgb(124, 58, 237)" : "rgb(30, 30, 58)",
+                  }}
+                />
               ))}
             </div>
-            <button onClick={next} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
+            <button onClick={next} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary"
+              style={{ transition: "border-color 150ms var(--ease-fast), color 150ms var(--ease-fast), transform 100ms var(--ease-fast)" }}
+              onMouseDown={e => e.currentTarget.style.transform = "scale(0.95)"}
+              onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
+            >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
