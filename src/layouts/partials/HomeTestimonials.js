@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
+import LiquidGlassCard from "@layouts/components/LiquidGlassCard";
 
 export default function HomeTestimonials({ testimonials }) {
   const [current, setCurrent] = useState(0);
@@ -35,8 +36,9 @@ export default function HomeTestimonials({ testimonials }) {
           <h2 className="text-text-dark font-bold mt-2">Trusted by Visionary Leaders</h2>
         </div>
 
-        <div className="max-w-3xl mx-auto bg-body border border-border/80 rounded-2xl p-8 md:p-12 shadow-sm relative">
-          <div className="absolute top-6 left-8 text-6xl text-primary/10 select-none font-serif leading-none">&ldquo;</div>
+        <div className="max-w-3xl mx-auto">
+          <LiquidGlassCard className="p-8 md:p-12 relative">
+            <div className="absolute top-6 left-8 text-6xl text-primary/20 select-none font-serif leading-none">&ldquo;</div>
 
           <div className={`transition-opacity duration-300 ${fade ? "opacity-100" : "opacity-0"}`}>
             <div className="flex justify-center gap-1 text-amber-400 mb-6">
@@ -95,8 +97,9 @@ export default function HomeTestimonials({ testimonials }) {
               </svg>
             </button>
           </div>
-        </div>
+        </LiquidGlassCard>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }

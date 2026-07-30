@@ -1,14 +1,15 @@
 import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
-import { FiShoppingBag, FiActivity, FiBookOpen, FiFeather, FiPieChart, FiSmartphone, FiFolder } from "react-icons/fi";
+import LiquidGlassCard from "@layouts/components/LiquidGlassCard";
+import CustomIconBadge from "@layouts/components/CustomIconBadge";
 
 const categoryIconMap = {
-  "E-Commerce": FiShoppingBag,
-  "Healthcare": FiActivity,
-  "EdTech": FiBookOpen,
-  "Branding": FiFeather,
-  "SaaS": FiPieChart,
-  "Mobile": FiSmartphone,
+  "E-Commerce": "shopping",
+  "Healthcare": "activity",
+  "EdTech": "book",
+  "Branding": "feather",
+  "SaaS": "piechart",
+  "Mobile": "smartphone",
 };
 
 function Portfolio({ data }) {
@@ -23,44 +24,42 @@ function Portfolio({ data }) {
         
         <div className="row">
           {projects.map((project, i) => {
-            const IconComponent = categoryIconMap[project.category] || FiFolder;
+            const iconKey = categoryIconMap[project.category] || "code";
             return (
               <div key={i} className="col-12 md:col-6 mb-8">
-                <div className="card p-0 overflow-hidden h-full flex flex-col hover:border-primary/40 hover:shadow-xl transition-all duration-300 group">
-                  <div className="relative h-56 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent flex items-center justify-center overflow-hidden">
+                <LiquidGlassCard className="h-full flex flex-col justify-between p-0">
+                  <div className="relative h-56 bg-gradient-to-br from-primary/20 via-purple-600/10 to-transparent flex items-center justify-center overflow-hidden">
                     {project.image ? (
                       <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     ) : (
-                      <div className="w-16 h-16 rounded-2xl bg-body border border-primary/20 text-primary flex items-center justify-center shadow-md">
-                        <IconComponent className="w-8 h-8" />
-                      </div>
+                      <CustomIconBadge icon={iconKey} size="lg" />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <span className="text-white text-sm font-semibold flex items-center gap-1.5">
-                        View Details →
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <span className="text-white text-sm font-bold flex items-center gap-1.5">
+                        View Case Study →
                       </span>
                     </div>
                   </div>
                   <div className="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary mb-3">
-                        <IconComponent className="w-3.5 h-3.5" />
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/15 text-primary border border-primary/20 mb-3">
+                        <CustomIconBadge icon={iconKey} size="sm" />
                         <span>{project.category}</span>
                       </div>
-                      <h3 className="text-text-dark text-xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
-                      <p className="text-text text-sm mt-2 leading-relaxed">{project.description}</p>
+                      <h3 className="text-white text-xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
+                      <p className="text-text/90 text-sm mt-2 leading-relaxed">{project.description}</p>
                     </div>
                     {project.tags && project.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-border">
+                      <div className="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-white/10">
                         {project.tags.map((tag, j) => (
-                          <span key={j} className="px-2.5 py-1 text-xs rounded-md bg-light text-text-dark font-medium border border-border">
+                          <span key={j} className="px-2.5 py-1 text-xs rounded-md bg-body/80 text-text/90 font-medium border border-white/10">
                             {tag}
                           </span>
                         ))}
                       </div>
                     )}
                   </div>
-                </div>
+                </LiquidGlassCard>
               </div>
             );
           })}
